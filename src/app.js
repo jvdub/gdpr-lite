@@ -8,14 +8,30 @@
 import { utils } from './utils';
 
 export const gdprLite = {
-    createToastHTML(noticeVerbiage) {
+    getTextForNotice(providedText, urlToTerms) {
+        let noticeText = document.createElement('p');
+        noticeText.id = 'gdpr-lite-text';
+
+        if (urlToTerms && typeof urlToTerms === 'string') {
+            let a = document.createElement('a');
+            a.id = 'gdpr-lite-tac';
+            a.innerText = 'Terms and Conditions';
+            a.href = urlToTerms;
+
+            noticeText.innerText = `${providedText} For more information, please refer to our `;
+            noticeText.appendChild(a);
+            noticeText.innerText += '.';
+        } else {
+            noticeText.innerText = providedText;
+        }
+
+        return noticeText;
+    },
+    createToastHTML(noticeVerbiage, urlToTerms) {
         let containingDiv = utils.createDiv('toast');
         let imgDiv = utils.createDiv('img');
         let noticeDiv = utils.createDiv('notice');
-
-        let noticeText = document.createElement('p');
-        noticeText.id = 'gdpr-lite-text';
-        noticeText.innerText = noticeVerbiage;
+        let noticeText = getTextForNotice(noticeVerbiage, urlToTerms);
 
         noticeDiv.appendChild(noticeText);
         imgDiv.appendChild(noticeDiv);
@@ -24,7 +40,7 @@ export const gdprLite = {
 
         // TODO: Add stylesheet to HTML
     },
-    initialize(noticeText = 'This site uses cookies to offer its online services. For more information on their usage, please refer to .....') {
-        createToastHTML(noticeText);
+    initialize(noticeText = 'This site uses cookies to offer its online services.', urlToTerms) {
+        createToastHTML(noticeText, urlToTerms);
     }
 };
