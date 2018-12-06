@@ -1,0 +1,7 @@
+{
+  "name": "gdpr-lite",
+  "version": "0.1.0",
+  "description": "A JavaScript library for easy GDPR compliance",
+  "author": "John Van Wagenen <jtvanwage@gmail.com>",
+  "license": "LicenseRef-LICENSE"
+}
