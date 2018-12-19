@@ -2,7 +2,6 @@
     visibility: hidden;
     max-width: 50px;
     height: 50px;
-    /*margin-left: -125px;*/
     margin: auto;
     background-color: #333;
     color: #fff;
@@ -21,24 +20,17 @@
 #gdpr-lite-toast #gdpr-lite-img {
     width: 50px;
     height: 50px;
-
     float: left;
-
     padding-top: 16px;
     padding-bottom: 16px;
-
     box-sizing: border-box;
-
     background-color: #111;
     color: #fff;
 }
 
 #gdpr-lite-toast #gdpr-lite-desc {
-
     color: #fff;
-
     padding: 16px;
-
     overflow: hidden;
     white-space: nowrap;
 }

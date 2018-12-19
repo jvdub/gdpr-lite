@@ -3,5 +3,15 @@
   "version": "0.1.0",
   "description": "A JavaScript library for easy GDPR compliance",
   "author": "John Van Wagenen <jtvanwage@gmail.com>",
-  "license": "LicenseRef-LICENSE"
+  "license": "LicenseRef-LICENSE",
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "latest",
+    "cookie-parser": "^1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "morgan": "~1.9.0"
+  }
 }
