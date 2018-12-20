@@ -42,7 +42,7 @@ function getTextForNotice(providedText, urlToTerms) {
 
 function includeCss() {
     let style = document.createElement('style');
-    style.innerText = '#gdpr-lite-toast{position:fixed;left:0;bottom:0;width:100%;background-color:red;color:white;text-align:center;}';
+    style.innerText = '#gdpr-lite-toast{position:fixed;left:0;bottom:0;width:100%;background-color:darkslategrey;color:white;text-align:center;}button{display:inline-block;padding:6px 12px;margin-bottom:0;font-size:14px;font-weight:400;line-height:1.42857143;text-align:center;white-space:nowrap;vertical-align:middle;-ms-touch-action:manipulation;touch-action:manipulation;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;background-image:none;border:1pxsolidtransparent;border-radius:4px;color:#fff;background-color:#5cb85c;border-color:#4cae4c;}';
 
     document.head.appendChild(style);
 }
