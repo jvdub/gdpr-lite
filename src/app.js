@@ -50,6 +50,7 @@ function includeCss() {
 function wireAcceptEvent(btn) {
     btn.onclick = (e) => {
         document.getElementById('gdpr-lite-toast').style.display = 'none';
+        document.cookie = "gdprlite=true; expires=Fri, 31 Dec 9999 23:59:59 GMT";
     };
 
     return btn;
@@ -69,8 +70,22 @@ function createToastHTML(noticeVerbiage, urlToTerms) {
     includeCss();
 }
 
+function shouldShowMessage() {
+    if (!document.cookie.includes('gdprlite=')) {
+        return true;
+    } else if (document.cookie.includes('gdprlite=') && document.cookie.replace(/(?:(?:^|.*;\s*)gdprlite\s*\=\s*([^;]*).*$)|^.*$/, "$1") !== 'true') {
+        return true;
+    } else if (document.cookie.includes('gdprlite=') && document.cookie.replace(/(?:(?:^|.*;\s*)gdprlite\s*\=\s*([^;]*).*$)|^.*$/, "$1") === 'true') {
+        return false;
+    }
+
+    return false;
+}
+
 export const gdprLite = {
     initialize(noticeText = 'This site uses cookies to offer its online services.', urlToTerms) {
-        createToastHTML(noticeText, urlToTerms);
+        if (shouldShowMessage()) {
+            createToastHTML(noticeText, urlToTerms);
+        }
     }
 };
